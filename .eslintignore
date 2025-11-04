@@ -8,4 +8,9 @@ cypress/screenshots
 coverage
 .vscode
 .idea
-
+android
+ios
+android/app/build
+ios/DerivedData
+ios/App/App/public
+android/app/src/main/assets/public

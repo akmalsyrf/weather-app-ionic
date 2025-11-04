@@ -1,53 +1,42 @@
 <template>
   <div class="weather-container">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Prakiraan Cuaca Jakarta</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content>
-
-      <div class="content-wrapper">
-        <div v-if="loading" class="loading-container">
-          <ion-spinner name="crescent"></ion-spinner>
-          <p>Memuat data cuaca...</p>
-        </div>
-
-        <div v-else-if="error" class="error-container">
-          <ion-icon name="alert-circle" size="large"></ion-icon>
-          <p>{{ error }}</p>
-          <ion-button @click="loadWeatherData" color="primary">
-            Coba Lagi
-          </ion-button>
-        </div>
-
-        <div v-else class="weather-list">
-          <ion-list>
-            <ion-item 
-              v-for="(weather, index) in weatherData" 
-              :key="index"
-              class="weather-item"
-            >
-              <ion-label>
-                <h2>{{ formatTime(weather.time) }}</h2>
-                <p class="temperature">{{ weather.temperature_2m }}°C</p>
-              </ion-label>
-            </ion-item>
-          </ion-list>
-        </div>
+    <div class="content-wrapper">
+      <div v-if="loading" class="loading-container">
+        <ion-spinner name="crescent" />
+        <p>Memuat data cuaca...</p>
       </div>
-    </ion-content>
+
+      <div v-else-if="error" class="error-container">
+        <ion-icon name="alert-circle" size="large" />
+        <p>{{ error }}</p>
+        <ion-button color="primary" @click="loadWeatherData">
+          Coba Lagi
+        </ion-button>
+      </div>
+
+      <div v-else class="weather-list">
+        <ion-list>
+          <ion-item 
+            v-for="(weather, index) in weatherData" 
+            :key="index"
+            class="weather-item"
+          >
+            <ion-label>
+              <h2>{{ formatTime(weather.time) }}</h2>
+              <p class="temperature">
+                {{ weather.temperature_2m }}°C
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { 
-  IonContent, 
-  IonHeader, 
-  IonToolbar, 
-  IonTitle, 
   IonList, 
   IonItem, 
   IonLabel,
@@ -96,12 +85,13 @@ onMounted(() => {
 
 <style scoped>
 .weather-container {
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 16px;
 }
 
 .content-wrapper {
-  padding: 16px;
+  /* padding already in parent */
 }
 
 .loading-container {

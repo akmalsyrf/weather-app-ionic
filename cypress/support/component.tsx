@@ -13,26 +13,26 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import { mount } from 'cypress/vue'
-import { IonicVue } from '@ionic/vue'
-import '@ionic/vue/css/core.css'
-import '@ionic/vue/css/normalize.css'
-import '@ionic/vue/css/structure.css'
-import '@ionic/vue/css/typography.css'
-import '@ionic/vue/css/ionic.bundle.css'
+import { mount } from 'cypress/vue';
+import '@ionic/vue/css/core.css';
+import '@ionic/vue/css/normalize.css';
+import '@ionic/vue/css/structure.css';
+import '@ionic/vue/css/typography.css';
+import '@ionic/vue/css/ionic.bundle.css';
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
 // with a <reference path="./component" /> at the top of your spec.
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
     interface Chainable {
-      mount: typeof mount
+      mount: typeof mount;
     }
   }
 }
 
 // Add global mount function
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add('mount', mount);
 

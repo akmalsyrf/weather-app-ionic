@@ -21,6 +21,13 @@ const config: CapacitorConfig = {
     StatusBar: {
       style: 'dark',
       backgroundColor: '#667eea'
+    },
+    Geolocation: {
+      permissions: {
+        location: {
+          usageMessage: 'Aplikasi membutuhkan akses lokasi untuk menampilkan cuaca berdasarkan lokasi Anda.'
+        }
+      }
     }
   }
 };
