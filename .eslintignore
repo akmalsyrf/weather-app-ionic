@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+.cypress
+cypress/videos
+cypress/screenshots
+*.local
+coverage
+.vscode
+.idea
+

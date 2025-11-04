@@ -1,0 +1,9 @@
+{
+  "name": "weather-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "io.ionic.weatherapp"
+}
+
